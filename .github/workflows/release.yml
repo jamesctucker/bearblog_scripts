@@ -1,0 +1,25 @@
+# GitHub Actions Workflow to create a release
+# How to use:
+# 1. git tag v1.0.0
+# 2. git push origin v1.0.0
+# 3. The workflow will create a release with the tag name "v1.0.0"
+
+name: Create Release
+
+on:
+  push:
+    tags:
+      - "v*"
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Create Release
+        uses: softprops/action-gh-release@v1
+        with:
+          generate_release_notes: true
+          draft: false
