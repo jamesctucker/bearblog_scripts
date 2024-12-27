@@ -1,1 +1,1 @@
-# bearblog_scripts
+# Bear Blog Scripts
